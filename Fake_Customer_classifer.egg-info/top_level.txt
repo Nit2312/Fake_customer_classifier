@@ -1,4 +1,0 @@
-configs
-data
-src
-utils
