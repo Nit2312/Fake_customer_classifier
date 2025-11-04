@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: Fake-Customer-classifer
+Version: 0.1
+Author: Nit Patel
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: joblib
+Requires-Dist: scikit-learn
+Requires-Dist: streamlit
+Requires-Dist: xgboost
+Dynamic: author
+Dynamic: requires-dist
