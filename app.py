@@ -108,8 +108,6 @@ if page == "Customer Prediction":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        unique_ids = sorted(df["customer_id"].astype(int).unique().tolist())
-        selected_customer_id = st.selectbox("Customer ID (existing)", options=unique_ids)
         account_age_days = st.number_input("Account Age (days)", min_value=0, max_value=5000, value=100)
         phone_verified_label = st.selectbox("Phone Verified?", ["Yes", "No"])
         phone_verified = 1 if phone_verified_label == "Yes" else 0
@@ -147,7 +145,6 @@ if page == "Customer Prediction":
     # Build input DataFrame
     # ------------------------------
     input_data = pd.DataFrame([{
-        "customer_id": selected_customer_id,
         "account_age_days": account_age_days,
         "email_domain_type": email_domain_type,
         "phone_verified": phone_verified,
