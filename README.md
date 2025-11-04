@@ -1,50 +1,81 @@
 
-# Fake Customer Classifier
+🕵️‍♂️ Fake Customer Classifier
 
-A small end-to-end project to generate synthetic e-commerce customer cases, train a classifier to detect likely fake customers, and serve predictions via a simple app.
+A small end-to-end machine learning project that generates synthetic e-commerce customer data, trains a classifier to detect fake customers, and serves predictions via a simple Streamlit app.
 
-## Features
-- Synthetic data generation to CSV (`src/data_generator.py`).
-- Preprocessing utilities (`src/preprocessing.py`).
-- Training pipeline to build and persist the model (`pipeline/train_pipeline.py`).
-- Saved artifacts in `models/` (model and label encoders).
-- Simple app entrypoint (`app.py`).
+🔗 Live Demo: https://fake-customer-classifier.streamlit.app
 
-## Project Structure
-- **configs/**: Global paths and hyperparameters.
-- **data/**: Generated dataset (CSV).
-- **models/**: Trained model and encoders.
-- **pipeline/**: Training script.
-- **src/**: Data generation and preprocessing code.
-- **utils/**: Logging and custom exceptions.
+🚀 Overview
+This project demonstrates a full ML pipeline — from data generation to model deployment — using a reproducible and modular codebase. It includes tools for creating synthetic datasets, preprocessing data, training and saving models, and serving predictions interactively.
 
-## Quickstart
-1. Create and activate a Python 3.10+ environment.
-2. Install dependencies:
+🧩 Features
+- 🧠 Synthetic Data Generation → Easily create labeled e-commerce customer data.
+- 🧹 Preprocessing Utilities → Clean, encode, and prepare data for training.
+- 🤖 Training Pipeline → Automates model training, evaluation, and saving artifacts.
+- 📦 Saved Artifacts → Includes trained model and encoders for inference.
+- 🌐 Streamlit App → Simple user interface for real-time predictions.
+
+📁 Project Structure
+```
+Fake-Customer-Classifier/
+│
+├── app.py                   # Streamlit app entrypoint
+├── configs/                 # Global paths, constants, and hyperparameters
+├── data/                    # Generated datasets (CSV files)
+├── models/                  # Saved models and label encoders
+├── pipeline/
+│   └── train_pipeline.py    # Model training and evaluation pipeline
+├── src/
+│   ├── data_generator.py    # Synthetic data generation
+│   └── preprocessing.py     # Data preprocessing utilities
+├── utils/                   # Logging and custom exception handling
+└── requirements.txt         # Project dependencies
+```
+
+⚙️ Quickstart
+1. Environment Setup
+   - Create a virtual environment
+     - macOS/Linux:
+       ```bash
+       python -m venv venv && source venv/bin/activate
+       ```
+     - Windows (PowerShell):
+       ```powershell
+       python -m venv venv; venv\Scripts\activate
+       ```
+2. Install Dependencies
    ```bash
    pip install -r requirements.txt
    ```
-3. Generate data:
+3. Generate Synthetic Data
    ```bash
    python -c "from src.data_generator import generate_synthetic_data; generate_synthetic_data()"
    ```
-4. Train the model:
+4. Train the Model
    ```bash
    python -m pipeline.train_pipeline
    ```
-5. Run the app (if applicable):
+5. Run the Streamlit App
    ```bash
-   python app.py
+   streamlit run app.py
    ```
 
-## Configuration
-Adjust parameters in `configs/config.py` (paths, dataset size, train/test split, etc.).
+🔧 Configuration
+Modify parameters in `configs/config.py` to customize:
+- Dataset size (`NUM_SAMPLES`)
+- Train/test split
+- File paths and storage directories
+- Model hyperparameters
 
-Note: The data generator now creates independent rows equal to `NUM_SAMPLES`. There is no fixed "cases per customer" constraint.
+📝 Notes
+- The data generator creates independent rows equal to `NUM_SAMPLES` (no fixed “cases per customer”).
+- `customer_id` is not used as a feature; predictions are based on behavior/attributes only.
 
-## Requirements
-See `requirements.txt`.
+🧠 Requirements
+- Python 3.10 or higher
+- Dependencies listed in `requirements.txt`
 
-## License
-MIT (or project-specific). Update as needed.
+💡 Future Improvements
+- Add explainability (SHAP/feature importance)
+- Enhance UI with confidence scores and detailed insights
 
