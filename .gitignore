@@ -1,3 +1,4 @@
 venv/
 logs/
 Fake_Customer_classifer.egg-info/
+__pycache__/
