@@ -75,7 +75,6 @@ Modify parameters in `configs/config.py` to customize:
 - Python 3.10 or higher
 - Dependencies listed in `requirements.txt`
 
-💡 Future Improvements
-- Add explainability (SHAP/feature importance)
-- Enhance UI with confidence scores and detailed insights
+💡 Accuracy
+- The Model have a Accuracy of 99.76 
 
