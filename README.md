@@ -9,11 +9,11 @@ A small end-to-end machine learning project that generates synthetic e-commerce 
 This project demonstrates a full ML pipeline — from data generation to model deployment — using a reproducible and modular codebase. It includes tools for creating synthetic datasets, preprocessing data, training and saving models, and serving predictions interactively.
 
 🧩 Features
-- 🧠 Synthetic Data Generation → Easily create labeled e-commerce customer data.
-- 🧹 Preprocessing Utilities → Clean, encode, and prepare data for training.
-- 🤖 Training Pipeline → Automates model training, evaluation, and saving artifacts.
-- 📦 Saved Artifacts → Includes trained model and encoders for inference.
-- 🌐 Streamlit App → Simple user interface for real-time predictions.
+- Synthetic Data Generation → Easily create labeled e-commerce customer data.
+- Preprocessing Utilities → Clean, encode, and prepare data for training.
+- Training Pipeline → Automates model training, evaluation, and saving artifacts.
+- Saved Artifacts → Includes trained model and encoders for inference.
+- Streamlit App → Simple user interface for real-time predictions.
 
 📁 Project Structure
 ```

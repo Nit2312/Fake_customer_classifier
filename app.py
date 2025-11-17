@@ -10,7 +10,7 @@ from utils.logger import get_logger
 from utils.custom_exception import CustomException
 
 # --------------------------------------------
-# 1️⃣  PAGE SETUP
+# PAGE SETUP
 # --------------------------------------------
 st.set_page_config(
     page_title="Fake Customer Classifier",
@@ -28,7 +28,7 @@ This app allows you to:
 """)
 
 # --------------------------------------------
-# 2️⃣  CONFIG & PATHS
+# CONFIG & PATHS
 # --------------------------------------------
 logger = get_logger(__name__)
 data_path = DATA_PATH
@@ -36,7 +36,7 @@ model_path = MODEL_PATH
 encoders_path = ENCODER_PATH
 
 # --------------------------------------------
-# 3️⃣  LOAD OR GENERATE DATA
+# LOAD OR GENERATE DATA
 # --------------------------------------------
 try:
     if not os.path.exists(data_path):
@@ -56,7 +56,7 @@ except Exception as e:
 st.dataframe(df.head())
 
 # --------------------------------------------
-# 4️⃣  LOAD OR TRAIN MODEL
+# LOAD OR TRAIN MODEL
 # --------------------------------------------
 try:
     if not os.path.exists(model_path) or not os.path.exists(encoders_path):
@@ -74,7 +74,7 @@ except Exception as e:
     raise CustomException("Model load/train failed", e)
 
 # --------------------------------------------
-# 5️⃣  SIDEBAR NAVIGATION
+# SIDEBAR NAVIGATION
 # --------------------------------------------
 page = st.sidebar.radio(
     "Navigate",
@@ -82,7 +82,7 @@ page = st.sidebar.radio(
 )
 
 # --------------------------------------------
-# 6️⃣  DASHBOARD OVERVIEW
+# DASHBOARD OVERVIEW
 # --------------------------------------------
 if page == "Dashboard Overview":
     st.subheader("📊 Dataset Overview")
@@ -95,14 +95,14 @@ if page == "Dashboard Overview":
     st.bar_chart(df["is_fake"].value_counts())
 
 # --------------------------------------------
-# 7️⃣  CUSTOMER PREDICTION PAGE
+# CUSTOMER PREDICTION PAGE
 # --------------------------------------------
 if page == "Customer Prediction":
     st.header("📋 Customer Prediction Interface")
 
     st.markdown("""
     Use the fields below to enter customer details.  
-    ℹ️ **Note:** The model predicts whether the customer is likely *Fake (1)* or *Genuine (0)*.
+    **Note:** The model predicts whether the customer is likely *Fake (1)* or *Genuine (0)*.
     """)
 
     col1, col2, col3 = st.columns(3)
@@ -171,7 +171,7 @@ if page == "Customer Prediction":
     # ------------------------------
     # Make prediction
     # ------------------------------
-    if st.button("🔍 Predict"):
+    if st.button("Predict"):
         try:
             # Ensure all columns match model expectations
             missing_cols = set(model.feature_names_in_) - set(input_data.columns)
@@ -186,14 +186,14 @@ if page == "Customer Prediction":
             logger.info("Prediction made with probability %.4f", float(prob))
 
             if prediction == 1:
-                st.error(f"🚨 Predicted: **FAKE CUSTOMER (1)** with {prob*100:.2f}% confidence.")
+                st.error(f"Predicted: **FAKE CUSTOMER (1)** with {prob*100:.2f}% confidence.")
             else:
-                st.success(f"✅ Predicted: **GENUINE CUSTOMER (0)** with {prob*100:.2f}% confidence.")
+                st.success(f"Predicted: **GENUINE CUSTOMER (0)** with {prob*100:.2f}% confidence.")
 
             st.markdown("""
             **Legend:**
-            - `1` → 🚨 Fake Customer  
-            - `0` → ✅ Genuine Customer
+            - `1` → Fake Customer  
+            - `0` → Genuine Customer
             """)
 
             with st.expander("🔎 Model Input Data"):
